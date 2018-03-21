@@ -1,0 +1,15 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>javavlad</groupId>
+	<artifactId>Quantum_Leap</artifactId>
+	<packaging>pom</packaging>
+	<version>2.0</version>
+		<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		</properties>
+		<modules>
+		<module>part_001</module>
+		</modules>
+</project>

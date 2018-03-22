@@ -10,7 +10,7 @@ package ru.javavlad;
 public class Calculate {
 
 /**
- * Вывод строки Hello World.
+ * Print String Hello World.
  * @param args - args
  */
 

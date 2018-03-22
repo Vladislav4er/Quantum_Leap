@@ -1,11 +1,12 @@
 <project>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>part_001</artifactId>
-	<version>2.0</version>
+	<groupId>part_001</groupId>
+	<version>1.0</version>
 	<packaging>jar</packaging>
 	<parent>
-	<groupId>ru.javavlad</groupId>
+	<groupId>Quantum_Leap</groupId>
 	<artifactId>Quantum_Leap</artifactId>
-	<version>2.0</version>
+	<version>1.0</version>
 	</parent>
 </project>

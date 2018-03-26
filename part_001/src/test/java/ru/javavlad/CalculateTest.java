@@ -8,7 +8,6 @@ import static org.junit.Assert.assertThat;
 
 /**
 * Test.
-*
 * @author Vlad
 * @version $Id$
 * @since 22.03.2018

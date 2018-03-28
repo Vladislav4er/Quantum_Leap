@@ -14,7 +14,7 @@ import static org.junit.Assert.assertThat;
 public class MaxTest {
 
     /**
-     * Test of maximum.
+     * Test of maximum of 2 numbers.
      */
 
     @Test
@@ -24,4 +24,17 @@ public class MaxTest {
         int expected = 5;
         assertThat(result, is(expected));
     }
+
+    /**
+     * Test of maximum of 3 numbers.
+     */
+
+    @Test
+    public void whenCompareThreeAndFiveAndSevenThenMaximumSeven() {
+        Max max = new Max();
+        int result = max.max(3, 5, 7);
+        int expected = 7;
+        assertThat(result, is(expected));
+    }
+
 }

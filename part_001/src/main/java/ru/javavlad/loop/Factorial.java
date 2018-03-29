@@ -4,7 +4,7 @@ package ru.javavlad.loop;
  * Factorial.
  * @author Vladislav4er
  * @version 1.00
- * @since 12.08.2017
+ * @since 29.03.2018
  */
 
 public class Factorial {

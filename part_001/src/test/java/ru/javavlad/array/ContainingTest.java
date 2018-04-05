@@ -19,8 +19,8 @@ public class ContainingTest {
 
     @Test
     public void whenOriginContainsSubThenTrue() {
-        String origin = "Санкт-Петербург";
-        String sub = "кт-Петерб";
+        String origin = "ВаВаВаВаВаСя";
+        String sub = "ВаСя";
         boolean expected = true;
         assertThat(Containing.contains(origin, sub), is(expected));
     }

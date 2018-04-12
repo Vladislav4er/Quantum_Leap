@@ -9,10 +9,10 @@ package ru.javavlad;
 
 public class Calculate {
 
-/**
- * Print String Hello World.
- * @param args - args
- */
+	/**
+	 * Print String Hello World.
+	 * @param args - args
+	 */
 
 	public static void main(String[] args) {
 		System.out.println("Hello World!");

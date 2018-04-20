@@ -23,7 +23,7 @@ public class Tracker {
      * Метод обновляет элемент в массиве items с таким же id.
      */
     public void update(Item item) {
-        for (int index = 0; index <= this.position;) {
+        for (int index = 0; index < this.position;) {
             if (this.items[index] != null && this.items[index].getId().equals(item.getId())) {
                 this.items[index] = item;
                 break;
@@ -35,7 +35,7 @@ public class Tracker {
      * Метод удаляет элемент из массива.
      */
     public void delete(Item item) {
-        for (int index = 0; index <= this.position; index++) {
+        for (int index = 0; index < this.position; index++) {
             if (this.items[index] != null && this.items[index].getId().equals(item.getId())) {
                 System.arraycopy(items, index + 1, items, index, this.items.length - 1 - index);
                 position--;
@@ -47,8 +47,8 @@ public class Tracker {
      * Метод возвращает все созданные заявки в виде массива.
      */
     public Item[] findAll() {
-        Item[] result = new Item[this.position + 1];
-        for (int i = 0; i <= this.position; i++) {
+        Item[] result = new Item[this.position];
+        for (int i = 0; i < this.position; i++) {
             result[i] = this.items[i];
         }
         return result;
@@ -58,15 +58,16 @@ public class Tracker {
      * Поиск заявки по имени.
      */
     public Item[] findByName(String key) {
-        Item[] result = new Item[this.position + 1];
+        Item[] result = new Item[this.position];
         int j = 0;
         for (Item item : items) {
             if (item != null && item.getName().equals(key)) {
                 result[j++] = item;
+
             }
         }
-        Item[] result2 = new Item[j + 1];
-        for (int i = 0; i <= j; i++) {
+        Item[] result2 = new Item[j];
+        for (int i = 0; i < j; i++) {
             result2[i] = result[i];
         }
         return result2;
@@ -90,7 +91,7 @@ public class Tracker {
      * Добавление комментария к заявке
      */
     public void addComment(String id, String comment) {
-        for (int index = 0; index <= position; index++) {
+        for (int index = 0; index < position; index++) {
             if ((this.items[index] != null) && (this.items[index].getId().equals(id))) {
                 this.items[index].setComment(comment);
                 break;

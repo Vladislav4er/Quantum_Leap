@@ -39,7 +39,6 @@ public class TrackerTest {
         tracker.delete(second);
         assertThat(tracker.findAll()[0], is(first));
         assertThat(tracker.findAll()[1], is(third));
-        assertThat(tracker.findAll()[2], is((Object) null));
     }
 
     @Test

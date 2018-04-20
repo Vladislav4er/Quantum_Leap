@@ -1,4 +1,4 @@
-package ru.javavlad.Strategy;
+package ru.javavlad.strategy;
 
 public class Paint {
 

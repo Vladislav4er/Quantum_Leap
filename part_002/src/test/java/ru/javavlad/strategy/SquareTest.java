@@ -1,30 +1,25 @@
-package ru.javavlad.Strategy;
+package ru.javavlad.strategy;
 
 import org.junit.Test;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class PaintTest {
+
+public class SquareTest {
     @Test
     public void whenDrawSquare() {
-        PrintStream stdout = System.out;
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out));
-        new Paint().pic(new Square());
+        Square square = new Square();
         assertThat(
-                new String(out.toByteArray()),
+                square.pic(),
                 is(
                         new StringBuilder()
                                 .append("+++++++\n")
                                 .append("+     +\n")
                                 .append("+     +\n")
                                 .append("+++++++\n")
-                                .append(System.lineSeparator())
                                 .toString()
                 )
         );
-        System.setOut(stdout);
     }
 }
+

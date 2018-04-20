@@ -6,7 +6,7 @@ public class StartUI {
     private Input input;
     private Tracker tracker;
 
-    public StartUI(Input input,Tracker tracker) {
+    public StartUI(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
     }
@@ -52,8 +52,7 @@ public class StartUI {
                     item1.setDescription(input.ask("Введите новое описание: "));
                     item1.setId(itemId);
                     tracker.update(item1);
-                }
-                else {
+                } else {
                     System.out.println("Такой заявки не существует");
                 }
             }

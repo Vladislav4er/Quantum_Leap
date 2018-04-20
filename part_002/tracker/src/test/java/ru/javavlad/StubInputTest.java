@@ -35,7 +35,7 @@ public class StubInputTest {
         tracker.add(item1);
         Input input = new StubInput(new String[]{"1", "6"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findAll(), is(new Item [] {item2, item1}));
+        assertThat(tracker.findAll(), is(new Item[] {item2, item1}));
     }
 
     @Test
@@ -47,7 +47,7 @@ public class StubInputTest {
         tracker.add(item2);
         Input input = new StubInput(new String[]{"3", item1.getId(), "6"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findAll(), is(new Item [] {item2}));
+        assertThat(tracker.findAll(), is(new Item[] {item2}));
     }
 
     @Test
@@ -72,6 +72,6 @@ public class StubInputTest {
         tracker.add(item2);
         Input input = new StubInput(new String[]{"5", name, "6"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findByName(name), is(new Item [] {item1, item2}));
+        assertThat(tracker.findByName(name), is(new Item[] {item1, item2}));
     }
 }

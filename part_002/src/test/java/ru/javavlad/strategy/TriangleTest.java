@@ -1,4 +1,4 @@
-package ru.javavlad.Strategy;
+package ru.javavlad.strategy;
 
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;

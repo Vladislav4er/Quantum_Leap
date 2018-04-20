@@ -4,11 +4,15 @@ import ru.javavlad.models.Item;
 
 public class StartUI {
     private Input input;
-    private Tracker tracker = new Tracker();
+    private Tracker tracker;
+
+    public StartUI(Input input,Tracker tracker) {
+        this.input = input;
+        this.tracker = tracker;
+    }
 
     public void init() {
         Item item = new Item();
-        input = new ConsoleInput();
         String answer = "null";
         while (!answer.equals("6")) {
             answer = input.ask("0. Add new Item\n"
@@ -21,7 +25,6 @@ public class StartUI {
                     + "Select: ");
 
             if (answer.equals("0")) {
-                //Item item = new Item();
                 String name = input.ask("Введите имя заявки ");
                 item.setName(name);
                 String description = input.ask("Введите описание заявки ");
@@ -61,9 +64,8 @@ public class StartUI {
             }
 
             if (answer.equals("4")) {
-                //Item item = new Item();
                 item = tracker.findById(input.ask("Введите Id заявки "));
-                System.out.println("Найдена заявка с именем: " + item.getName() + ". Комментарий: " + item.getDescription());
+                System.out.println("Найдена заявка с именем: " + item.getName() + ". Описание: " + item.getDescription());
             }
 
             if (answer.equals("5")) {
@@ -79,6 +81,8 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
-        new StartUI().init();
+        ConsoleInput input = new ConsoleInput();
+        Tracker tracker = new Tracker();
+        new StartUI(input, tracker).init();
     }
 }

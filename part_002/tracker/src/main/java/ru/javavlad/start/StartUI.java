@@ -4,11 +4,11 @@ import ru.javavlad.models.Item;
 
 public class StartUI {
     private Input input;
+    private Tracker tracker = new Tracker();
 
     public void init() {
         Item item = new Item();
         input = new ConsoleInput();
-        Tracker tracker = new Tracker();
         String answer = "null";
         while (!answer.equals("6")) {
             answer = input.ask("0. Add new Item\n"
@@ -44,18 +44,13 @@ public class StartUI {
             if (answer.equals("2")) {
                 String itemId = input.ask("Введите id заявки, которую хотите изменить:");
                 if (tracker.findById(itemId) != null) {
-
-                    String action = input.ask("0. Edit name\n" + "1. Edit description\n" + "2. Back\n" + "Select: ");
-                    if (action.equals("0")) {
-                        String name = input.ask("Введите новое имя: ");
-                        tracker.findById(itemId).setName(name);
-                    } else if (action.equals("1")) {
-                        String desc = input.ask("Введите новое описание: ");
-                        tracker.findById(itemId).setDescription(desc);
-                    } else {
-                        continue;
-                    }
-                } else {
+                    Item item1 = new Item();
+                    item1.setName(input.ask("Введите новое имя: "));
+                    item1.setDescription(input.ask("Введите новое описание: "));
+                    item1.setId(itemId);
+                    tracker.update(item1);
+                }
+                else {
                     System.out.println("Такой заявки не существует");
                 }
             }
@@ -82,8 +77,6 @@ public class StartUI {
             }
         }
     }
-
-
 
     public static void main(String[] args) {
         new StartUI().init();

@@ -1,6 +1,8 @@
 package ru.javavlad.start;
 
 import ru.javavlad.models.Item;
+
+import java.util.Arrays;
 import java.util.Random;
 
 public class Tracker {
@@ -47,11 +49,7 @@ public class Tracker {
      * Метод возвращает все созданные заявки в виде массива.
      */
     public Item[] findAll() {
-        Item[] result = new Item[this.position];
-        for (int i = 0; i < this.position; i++) {
-            result[i] = this.items[i];
-        }
-        return result;
+        return Arrays.copyOf(this.items, this.position);
     }
 
     /**
@@ -63,14 +61,8 @@ public class Tracker {
         for (Item item : items) {
             if (item != null && item.getName().equals(key)) {
                 result[j++] = item;
-
             }
-        }
-        Item[] result2 = new Item[j];
-        for (int i = 0; i < j; i++) {
-            result2[i] = result[i];
-        }
-        return result2;
+        } return Arrays.copyOf(result, j);
     }
 
     /**

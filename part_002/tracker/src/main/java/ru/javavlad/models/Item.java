@@ -3,13 +3,14 @@ package ru.javavlad.models;
 import lombok.Getter;
 import lombok.Setter;
 
+@Setter @Getter
 public class Item {
 
-    @Setter @Getter private String id;
-    @Setter @Getter private String name;
-    @Setter @Getter private String description;
-    @Setter @Getter private long create;
-    @Setter @Getter private String comment;
+    private String id;
+    private String name;
+    private String description;
+    private long create;
+    private String comment;
 
     public Item() {
     }

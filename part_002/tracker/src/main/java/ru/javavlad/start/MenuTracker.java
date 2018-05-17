@@ -10,7 +10,7 @@ class EditItem implements UserAction {
     public int key() {
         return 2;
     }
-    public void execute(Input input, Tracker tracker){
+    public void execute(Input input, Tracker tracker) {
         String itemId = input.ask("Введите id заявки, которую хотите изменить:");
         if (tracker.findById(itemId) != null) {
             Item item1 = new Item();
@@ -22,7 +22,7 @@ class EditItem implements UserAction {
             System.out.println("Такой заявки не существует");
         }
     }
-    public String info(){
+    public String info() {
         return String.format("%s. %s", this.key(), "Edit item.");
     }
 }
@@ -60,9 +60,9 @@ public class MenuTracker {
      * Отображение меню.
      */
 
-    public void show(){
+    public void show() {
         for (UserAction action : this.actions) {
-            if(action != null) {
+            if (action != null) {
                 System.out.println(action.info());
             }
         }
@@ -76,7 +76,7 @@ public class MenuTracker {
         public int key() {
             return 0;
         }
-        public void execute(Input input, Tracker tracker){
+        public void execute(Input input, Tracker tracker) {
             Item item = new Item();
             String name = input.ask("Введите имя заявки ");
             item.setName(name);
@@ -85,7 +85,7 @@ public class MenuTracker {
             tracker.add(item);
             System.out.println("Заявка " + item.getName() + " (описание: " + item.getDescription() + ")" + " добавлена. Id: " + item.getId());
         }
-        public String info(){
+        public String info() {
             return String.format("%s. %s", this.key(), "Add the new item.");
         }
     }
@@ -94,11 +94,11 @@ public class MenuTracker {
      * Внутренний статический класс.
      */
 
-    private static class ShowItems implements  UserAction{
+    private static class ShowItems implements  UserAction {
         public int key() {
             return 1;
         }
-        public void execute(Input input, Tracker tracker){
+        public void execute(Input input, Tracker tracker) {
             if (tracker.findAll().length > 0) {
                 System.out.println("Созданные заявки: ");
                 for (int index = 0; index < tracker.findAll().length; index++) {
@@ -108,7 +108,7 @@ public class MenuTracker {
                 System.out.println("Заявок нет\n");
             }
         }
-        public String info(){
+        public String info() {
             return String.format("%s. %s", this.key(), "Show all items.");
         }
     }
@@ -121,10 +121,10 @@ public class MenuTracker {
         public int key() {
             return 3;
         }
-        public void execute(Input input, Tracker tracker){
+        public void execute(Input input, Tracker tracker) {
             tracker.delete(tracker.findById(input.ask("Введите Id заявки ")));
         }
-        public String info(){
+        public String info() {
             return String.format("%s. %s", this.key(), "Delete item.");
         }
     }
@@ -133,11 +133,11 @@ public class MenuTracker {
         public int key() {
             return 4;
         }
-        public void execute(Input input, Tracker tracker){
+        public void execute(Input input, Tracker tracker) {
             Item item = tracker.findById(input.ask("Введите Id заявки "));
             System.out.println("Найдена заявка с именем: " + item.getName() + ". Описание: " + item.getDescription());
         }
-        public String info(){
+        public String info() {
             return String.format("%s. %s", this.key(), "Find item by id.");
         }
     }
@@ -146,7 +146,7 @@ public class MenuTracker {
         public int key() {
             return 5;
         }
-        public void execute(Input input, Tracker tracker){
+        public void execute(Input input, Tracker tracker) {
             String name = input.ask("Введите имя заявки ");
             for (int index = 0; index < tracker.findByName(name).length; index++) {
                 System.out.println("Найдена заявка: " + name
@@ -154,7 +154,7 @@ public class MenuTracker {
                         + " c id: " + tracker.findByName(name)[index].getId());
             }
         }
-        public String info(){
+        public String info() {
             return String.format("%s. %s", this.key(), "Find items by name.");
         }
     }
@@ -163,10 +163,10 @@ public class MenuTracker {
         public int key() {
             return 6;
         }
-        public void execute(Input input, Tracker tracker){
+        public void execute(Input input, Tracker tracker) {
             System.exit(0);
         }
-        public String info(){
+        public String info() {
             return String.format("%s. %s", this.key(), "Exit Programm.");
         }
     }

@@ -5,7 +5,7 @@ public class StartUI {
     private Tracker tracker;
 
     public static void main(String[] args) {
-        ConsoleInput input = new ConsoleInput();
+        Input input = new ValidateInput();
         Tracker tracker = new Tracker();
         new StartUI(input, tracker).init();
     }
@@ -20,8 +20,7 @@ public class StartUI {
         menu.fillActions();
         do {
             menu.show();
-            int key = Integer.valueOf(input.ask("Select: "));
-            menu.select(key);
+            menu.select(input.ask("Select: ", menu.getRanges()));
         } while (!"y".equals(this.input.ask("Exit? (y): ")));
     }
 }

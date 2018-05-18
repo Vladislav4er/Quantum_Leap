@@ -24,5 +24,3 @@ public class StartUI {
         } while (!"y".equals(this.input.ask("Exit? (y): ")));
     }
 }
-
-

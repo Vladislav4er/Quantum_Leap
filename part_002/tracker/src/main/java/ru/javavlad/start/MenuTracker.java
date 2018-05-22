@@ -44,13 +44,13 @@ public class MenuTracker {
      */
 
     public void fillActions() {
-        this.actions[position++] = new AddItem(0, "Add the new item");
-        this.actions[position++] = new ShowItems(1, "Show all items");
-        this.actions[position++] = new EditItem(2, "Edit item");
-        this.actions[position++] = new DeleteItem(3, "Delete item");
-        this.actions[position++] = this.new FindItemById(4, "Find item by id");
-        this.actions[position++] = this.new FindItemsByName(5, "Find item by name");
-        this.actions[position++] = this.new Exit(6, "Exit program");
+        this.actions[position] = new AddItem(position++, "Add the new item");
+        this.actions[position] = new ShowItems(position++, "Show all items");
+        this.actions[position] = new EditItem(position++, "Edit item");
+        this.actions[position] = new DeleteItem(position++, "Delete item");
+        this.actions[position] = this.new FindItemById(position++, "Find item by id");
+        this.actions[position] = this.new FindItemsByName(position++, "Find item by name");
+        this.actions[position] = this.new Exit(position++, "Exit program");
     }
 
     public int[] getRanges() {

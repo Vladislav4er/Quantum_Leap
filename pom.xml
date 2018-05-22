@@ -12,7 +12,8 @@
 	<modules>
 		<module>part_001</module>
 		<module>part_002</module>
-	</modules>
+        <module>part_003</module>
+    </modules>
 	<dependencies>
 		<dependency>
 			<groupId>org.hamcrest</groupId>

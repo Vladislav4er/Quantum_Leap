@@ -6,7 +6,6 @@ import java.util.List;
 public class ConvertList2Array {
 
     public int[][] toArray(List<Integer> list, int rows) {
-        int k = 0;
         int cells = (list.size() % rows == 0) ? list.size() / rows : ((int) Math.ceil(list.size() / rows)) + 1;
         int[][] array = new int[rows][cells];
         int i = 0;
@@ -21,7 +20,7 @@ public class ConvertList2Array {
         return array;
     }
 
-    public static List<Integer> convert(List<int[]> list) {
+    public List<Integer> convert(List<int[]> list) {
         List<Integer> result = new ArrayList<>();
         for (int[] array : list) {
             for (int element : array) {
@@ -31,6 +30,3 @@ public class ConvertList2Array {
         return result;
     }
 }
-
-
-

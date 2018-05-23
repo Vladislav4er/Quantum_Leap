@@ -30,21 +30,3 @@ public class StubInput implements Input {
         }
     }
 }
-
-
-/*public class StubInput implements Input {
-    private List<Object> answers = new ArrayList<Object>();
-
-    public StubInput(Object[] answers) {
-        this.answers.add(answers);
-    }
-
-    public String ask(String question) {
-        return answers.toString();
-    }
-
-    public int ask(String question, int[] range) {
-        //throw new UnsupportedOperationException("Unsupported operation");
-        return -1;
-    }
-} */

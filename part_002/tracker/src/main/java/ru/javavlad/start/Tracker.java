@@ -5,6 +5,7 @@ import ru.javavlad.models.Item;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class Tracker {
 
@@ -38,12 +39,7 @@ public class Tracker {
      * Метод удаляет элемент из массива.
      */
     public void delete(Item item) {
-        for (Item aItem : items) {
-            if (aItem != null && aItem.getId().equals(item.getId())) {
-                items.remove(aItem);
-                break;
-            }
-        }
+        this.items.removeIf(aItem -> item.getId().equals(aItem.getId()));
     }
 
     /**
@@ -57,12 +53,8 @@ public class Tracker {
      * Поиск заявки по имени.
      */
     public List<Item> findByName(String key) {
-        List<Item> result = new ArrayList<>();
-        for (Item item : items) {
-            if (item != null && item.getName().equals(key)) {
-                result.add(item);
-            }
-        } return result;
+        return this.items.stream().filter(item -> item != null && item.getName().equals(key))
+                                    .collect(Collectors.toList());
     }
 
     /**

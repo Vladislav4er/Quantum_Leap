@@ -1,5 +1,7 @@
 package ru.javavlad.start;
 
+import java.util.List;
+
 public interface Input {
 
     String ask(String question);
@@ -7,6 +9,6 @@ public interface Input {
     /**
      * Перегруженный метод ask.
      */
-    int ask(String question, int[] range);
+    int ask(String question, List<Integer> range);
 
 }

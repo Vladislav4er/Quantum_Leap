@@ -1,5 +1,7 @@
 package ru.javavlad.start;
 
+import java.util.List;
+
 public class ValidateInput extends ConsoleInput {
 
     /**
@@ -7,7 +9,7 @@ public class ValidateInput extends ConsoleInput {
      * из класса ConsoleInput.
      */
 
-    public int ask(String question, int[] range) {
+    public int ask(String question, List<Integer> range) {
         boolean invalid = true;
         int value = -1;
         do {

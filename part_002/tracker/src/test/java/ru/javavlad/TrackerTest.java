@@ -13,7 +13,7 @@ public class TrackerTest {
         Tracker tracker = new Tracker();
         Item item = new Item("test1", "testDescription", 123L);
         tracker.add(item);
-        assertThat(tracker.findAll()[0], is(item));
+        assertThat(tracker.findAll().get(0), is(item));
     }
 
     @Test
@@ -37,8 +37,8 @@ public class TrackerTest {
         Item third = new Item("third", "third description", 3L);
         tracker.add(third);
         tracker.delete(second);
-        assertThat(tracker.findAll()[0], is(first));
-        assertThat(tracker.findAll()[1], is(third));
+        assertThat(tracker.findAll().get(0), is(first));
+        assertThat(tracker.findAll().get(1), is(third));
     }
 
     @Test
@@ -50,8 +50,8 @@ public class TrackerTest {
         tracker.add(second);
         Item third = new Item("second", "third description", 3L);
         tracker.add(third);
-        assertThat(tracker.findByName("second")[0], is(second));
-        assertThat(tracker.findByName("second")[1], is(third));
+        assertThat(tracker.findByName("second").get(0), is(second));
+        assertThat(tracker.findByName("second").get(1), is(third));
     }
 
     @Test
@@ -64,14 +64,5 @@ public class TrackerTest {
         Item third = new Item("third", "third description", 3L);
         tracker.add(third);
         assertThat(tracker.findById(second.getId()), is(second));
-    }
-
-    @Test
-    public void whenAddCommentToItemThenItemHasComment() {
-        Tracker tracker = new Tracker();
-        Item first = new Item("first", "first description", 1L);
-        tracker.add(first);
-        tracker.addComment(first.getId(), "Коммент1");
-        assertThat(tracker.findAll()[0].getComment(), is("Коммент1"));
     }
 }

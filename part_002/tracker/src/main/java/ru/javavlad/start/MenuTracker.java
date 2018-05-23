@@ -2,6 +2,9 @@ package ru.javavlad.start;
 
 import ru.javavlad.models.Item;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Внешний класс.
  */
@@ -30,8 +33,8 @@ public class MenuTracker {
 
     private Input input;
     private Tracker tracker;
-    private  UserAction[] actions = new UserAction[7];
-    private int[] ranges;
+    private List<UserAction> actions = new ArrayList<UserAction>();
+    private List<Integer> ranges = new ArrayList<>();
     private int position = 0;
 
     public MenuTracker(Input input, Tracker tracker) {
@@ -44,25 +47,25 @@ public class MenuTracker {
      */
 
     public void fillActions() {
-        this.actions[position] = new AddItem(position++, "Add the new item");
-        this.actions[position] = new ShowItems(position++, "Show all items");
-        this.actions[position] = new EditItem(position++, "Edit item");
-        this.actions[position] = new DeleteItem(position++, "Delete item");
-        this.actions[position] = this.new FindItemById(position++, "Find item by id");
-        this.actions[position] = this.new FindItemsByName(position++, "Find item by name");
-        this.actions[position] = this.new Exit(position++, "Exit program");
+        this.actions.add(new AddItem(position++, "Add the new item"));
+        this.actions.add(new ShowItems(position++, "Show all items"));
+        this.actions.add(new EditItem(position++, "Edit item"));
+        this.actions.add(new DeleteItem(position++, "Delete item"));
+        this.actions.add(this.new FindItemById(position++, "Find item by id"));
+        this.actions.add(this.new FindItemsByName(position++, "Find item by name"));
+        this.actions.add(this.new Exit(position++, "Exit program"));
     }
 
-    public int[] getRanges() {
-        ranges = new int[position];
+    public List<Integer> getRanges() {
+        ranges = new ArrayList<Integer>();
         for (int i = 0; i < position; i++) {
-            ranges[i] = i;
+            ranges.add(i);
         }
         return ranges;
     }
 
     public void select(int key) {
-        this.actions[key].execute(this.input, this.tracker);
+        this.actions.get(key).execute(this.input, this.tracker);
     }
 
     /**
@@ -109,10 +112,10 @@ public class MenuTracker {
 
         @Override
         public void execute(Input input, Tracker tracker) {
-            if (tracker.findAll().length > 0) {
+            if (tracker.findAll().size() > 0) {
                 System.out.println("Созданные заявки: ");
-                for (int index = 0; index < tracker.findAll().length; index++) {
-                    System.out.println("Заявка: " + tracker.findAll()[index].getName() + " с id " + tracker.findAll()[index].getId());
+                for (Item item : tracker.findAll()) {
+                    System.out.println("Заявка: " + item.getName() + " с id " + item.getId());
                 }
             } else {
                 System.out.println("Заявок нет\n");
@@ -155,10 +158,10 @@ public class MenuTracker {
         @Override
         public void execute(Input input, Tracker tracker) {
             String name = input.ask("Введите имя заявки ");
-            for (int index = 0; index < tracker.findByName(name).length; index++) {
+            for (Item item : tracker.findByName(name)) {
                 System.out.println("Найдена заявка: " + name
-                        + " (описание: " + tracker.findByName(name)[index].getDescription() + ")"
-                        + " c id: " + tracker.findByName(name)[index].getId());
+                        + " (описание: " + item.getDescription() + ")"
+                        + " c id: " + item.getId());
             }
         }
     }

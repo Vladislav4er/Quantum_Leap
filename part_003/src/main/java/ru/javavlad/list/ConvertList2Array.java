@@ -1,7 +1,9 @@
 package ru.javavlad.list;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ConvertList2Array {
 
@@ -21,12 +23,9 @@ public class ConvertList2Array {
     }
 
     public List<Integer> convert(List<int[]> list) {
-        List<Integer> result = new ArrayList<>();
-        for (int[] array : list) {
-            for (int element : array) {
-                result.add(element);
-            }
-        }
-        return result;
+        return list.stream()
+                .map(array -> Arrays.stream(array).boxed().collect(Collectors.toList()))
+                .flatMap(List::stream)
+                .collect(Collectors.toList());
     }
 }

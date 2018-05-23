@@ -8,12 +8,13 @@ public class ConvertList2Array {
         int k = 0;
         int cells = (list.size() % rows == 0) ? list.size() / rows : ((int) Math.ceil(list.size() / rows)) + 1;
         int[][] array = new int[rows][cells];
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cells; j++) {
-                array[i][j] = 0;
-                if (k < list.size()) {
-                    array[i][j] = list.get(k++);
-                }
+        int i = 0;
+        int j = 0;
+        for (int cell : list) {
+            array[i][j++] = cell;
+            if (j == cells) {
+                i++;
+                j = 0;
             }
         }
         return array;

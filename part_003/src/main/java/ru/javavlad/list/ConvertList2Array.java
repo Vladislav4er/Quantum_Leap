@@ -1,5 +1,6 @@
 package ru.javavlad.list;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ConvertList2Array {
@@ -18,6 +19,16 @@ public class ConvertList2Array {
             }
         }
         return array;
+    }
+
+    public static List<Integer> convert(List<int[]> list) {
+        List<Integer> result = new ArrayList<>();
+        for (int[] array : list) {
+            for (int element : array) {
+                result.add(element);
+            }
+        }
+        return result;
     }
 }
 

@@ -58,6 +58,5 @@ CREATE TABLE Files
     file_name CHARACTER VARYING (200),
     link CHARACTER VARYING (200),
     request_id INTEGER REFERENCES Requests(id),
-    user_id INTEGER REFERENCES Users(id),
     comment_id INTEGER REFERENCES Comments(id)
 );

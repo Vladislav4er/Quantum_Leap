@@ -14,5 +14,5 @@ INSERT INTO Requests(request_name, category_id, statement_id, user_id) values('�
 
 INSERT INTO Comments(request_id, comment_text, user_id) values(1, 'первый комментарий главной заявки', 1);
 
-INSERT INTO files(file_name, link, request_id, user_id, comment_id) values('Название файла', 'https://yandex.ru/', 1, 1, 1);
+INSERT INTO files(file_name, link, request_id, comment_id) values('Название файла', 'https://yandex.ru/', 1, 1);
 
